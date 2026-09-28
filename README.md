@@ -1,5 +1,7 @@
 # opencode-factory
 
+[![CI](https://github.com/whoisandy/opencode-factory/actions/workflows/ci.yml/badge.svg)](https://github.com/whoisandy/opencode-factory/actions/workflows/ci.yml)
+
 A lightweight, opinionated agent pack for OpenCode V2: eight Markdown agents, eight argument-based workflow commands, two skills (`improve`, `context`), a tiny read-only project-context plugin, and an installer CLI (`ocf`). It deliberately does **not** reimplement a full orchestration framework — no background loops, no hooks pipeline, no config mutation.
 
 ## What you get
@@ -101,7 +103,16 @@ bun run check        # oxlint + oxfmt --check
 bun run format       # oxfmt .
 ```
 
-The plugin entry is `dist/index.js`; the installer CLI is `dist/cli.js`. `src/context.ts` contains the read-only context reader shared by both. Built with `tsc`, tested with `bun:test`, linted and formatted with oxlint/oxfmt.
+The plugin entry is `dist/index.js`; the installer CLI is `dist/cli.js`. `src/context.ts` contains the read-only context reader shared by both. Built with `tsc`, tested with `bun:test`, linted and formatted with oxlint/oxfmt. CI (`.github/workflows/ci.yml`) runs the format/lint checks, typecheck, build, and test suite on pushes to `main` and on pull requests; publishing is always manual.
+
+## Versioning and changelog
+
+This repository uses [Changesets](https://github.com/changesets/changesets) to version the package and generate `CHANGELOG.md`:
+
+- Record a change: `bun run changeset` — pick the bump type and write a summary; commit the generated `.changeset/*.md` alongside the code change.
+- Inspect pending changes: `bun run changeset:status`.
+- Cut a version: `bun run changeset:version` — applies pending bumps and updates `CHANGELOG.md`; commit the result.
+- Publishing is manual: after a version commit, run `npm publish` (the `prepublishOnly` script builds and tests first). CI never publishes.
 
 ## Safety notes
 
