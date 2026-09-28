@@ -14,7 +14,10 @@
     "url": "https://github.com/whoisandy/opencode-factory/issues"
   },
   "license": "MIT",
-  "author": "hackeronepro",
+  "author": {
+    "name": "whoisandy",
+    "url": "https://github.com/whoisandy"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/whoisandy/opencode-factory.git"
