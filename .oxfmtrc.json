@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [
+    "dist/**",
+    "lab/**",
+    "backups/**",
+    "specs/**",
+    ".omo/**",
+    "bun.lock",
+    "package-lock.json"
+  ]
+}

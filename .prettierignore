@@ -1,0 +1,7 @@
+dist/
+lab/
+backups/
+specs/
+.omo/
+bun.lock
+package-lock.json

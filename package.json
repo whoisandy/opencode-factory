@@ -1,0 +1,75 @@
+{
+  "name": "opencode-factory",
+  "version": "0.1.0",
+  "description": "OpenCode Factory: a lightweight OpenCode V2 agent pack — eight agents (foreman, machinist, sage, explorer, librarian, reviewer, advisor, curator), argument-based workflow commands, two skills, a read-only project-context plugin, and the ocf installer CLI.",
+  "keywords": [
+    "agents",
+    "factory",
+    "opencode",
+    "opencode-factory",
+    "opencode-plugin"
+  ],
+  "homepage": "https://github.com/whoisandy/opencode-factory#readme",
+  "bugs": {
+    "url": "https://github.com/whoisandy/opencode-factory/issues"
+  },
+  "license": "MIT",
+  "author": "hackeronepro",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whoisandy/opencode-factory.git"
+  },
+  "bin": {
+    "ocf": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./installer": {
+      "types": "./dist/installer.d.ts",
+      "import": "./dist/installer.js"
+    },
+    "./context": {
+      "types": "./dist/context.d.ts",
+      "import": "./dist/context.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "bun run build && bun test tests/*.test.mjs",
+    "lint": "oxlint",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "check": "bun run lint && bun run format:check",
+    "prepublishOnly": "bun run test"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.0.18",
+    "jsonc-parser": "3.3.1"
+  },
+  "devDependencies": {
+    "@types/bun": "1.3.14",
+    "@types/node": "24.3.0",
+    "oxfmt": "0.70.0",
+    "oxlint": "1.85.0",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "bun": ">=1.3",
+    "node": ">=20"
+  }
+}
