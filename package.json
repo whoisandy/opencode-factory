@@ -23,7 +23,7 @@
     "url": "git+https://github.com/whoisandy/opencode-factory.git"
   },
   "bin": {
-    "ocf": "./dist/cli.js"
+    "ocf": "dist/cli.js"
   },
   "files": [
     "dist",
